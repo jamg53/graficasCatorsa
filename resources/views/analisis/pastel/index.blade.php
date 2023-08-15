@@ -13,7 +13,7 @@
 
         <div class="adc-center">
 
-            <form action="{{ route('analisis.show') }}" method="GET" id="myForm">
+            <form action="{{ route('analisis.pastel.show') }}" method="GET" id="myForm">
 
                 <div class="row">
 

@@ -18,9 +18,15 @@ class AnalisisController extends Controller
         return view('index');
     }
 
+    public function analisisPastelIndex()
+    {
+        $almacen = Almacen::all();
+        return view('analisis.pastel.index', ['almacen' => $almacen]);
+    }
+
+
     public function index()
     {
-
         $almacen = Almacen::all();
         return view('analisis.index', ['almacen' => $almacen]);
     }
@@ -85,7 +91,7 @@ class AnalisisController extends Controller
             $hora = $registro['hora'];
             $agente = $registro['agente'];
             $sucursal = $registro['sucursal'];
-            $id = $registro['id'];
+            $id = $registro['id'] -1;
 
             $pago = new Pago();
 

@@ -37,7 +37,7 @@ class VentasController extends Controller
                     ];
                 }
 
-                return view('analisis.show', ['nomAlm' => $nomAlm, 'datos' => $datos]);
+                return view('analisis..pastel.show', ['nomAlm' => $nomAlm, 'datos' => $datos]);
             }
             //SI ES SOLO POR INTERVALOS DE FECHAS
             else {
@@ -70,7 +70,7 @@ class VentasController extends Controller
                         ];
                     }
 
-                    return view('analisis.show', ['nomAlm' => $nomAlm, 'datos' => $datos]);
+                    return view('analisis..pastel.show', ['nomAlm' => $nomAlm, 'datos' => $datos]);
                 }
             }
         }
@@ -102,7 +102,7 @@ class VentasController extends Controller
                     ];
                 }
 
-                return view('analisis.show', ['nomAlm' => $nomAlm, 'datos' => $datos]);
+                return view('analisis..pastel.show', ['nomAlm' => $nomAlm, 'datos' => $datos]);
             }
             //SI ES SOLO POR INTERVALOS DE FECHAS
             else {
@@ -139,56 +139,10 @@ class VentasController extends Controller
                         ];
                     }
 
-                    return view('analisis.show', ['nomAlm' => $nomAlm, 'datos' => $datos]);
+                    return view('analisis..pastel.show', ['nomAlm' => $nomAlm, 'datos' => $datos]);
                 }
             }
         }
     }
 
-    public function ventasDiaMesTodosAlmacenes(Request $request)
-    {
-
-        $request->validate([
-            'fechaInicio' => 'required',
-            'fechaFinal' => 'required'
-        ]);
-
-        $fechaInicio = $request->input('fechaInicio');
-        $fechaFinal  = $request->input('fechaFinal');
-
-        $ventasPorDia = Pago::select(DB::raw('DAY(fecha) as dia, COUNT(*) as total_ventas'))
-            ->whereBetween('fecha', [$fechaInicio, $fechaFinal])
-            ->groupBy(DB::raw('DAY(fecha)'))
-            ->get();
-
-        $dias = $ventasPorDia->pluck('dia');
-        $totalVentas = $ventasPorDia->pluck('total_ventas');
-
-        return view('analisis.show', ['dias' => $dias, 'totalVentas' => $totalVentas]);
-    }
-
-    public function ventasDiaMesPorAlmacen(Request $request)
-    {
-
-        $request->validate([
-            'fechaInicio' => 'required',
-            'fechaFinal' => 'required',
-            'selectAlmacen' => 'required'
-        ]);
-
-        $fechaInicio = $request->input('fechaInicio');
-        $fechaFinal  = $request->input('fechaFinal');
-        $almacenId = $request->input('selectAlmacen');
-
-        $ventasPorDia = Pago::select(DB::raw('DAY(fecha) as dia, COUNT(*) as total_ventas'))
-            ->where('almacen_id', $almacenId)
-            ->whereBetween('fecha', [$fechaInicio, $fechaFinal])
-            ->groupBy(DB::raw('DAY(fecha)'))
-            ->get();
-
-        $dias = $ventasPorDia->pluck('dia');
-        $totalVentas = $ventasPorDia->pluck('total_ventas');
-
-        return view('analisis.show', ['dias' => $dias, 'totalVentas' => $totalVentas]);
-    }
 }

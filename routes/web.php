@@ -17,7 +17,9 @@ use App\Http\Controllers\VentasController;
 
 Route::get('/',[AnalisisController::class, 'home'])->name('home');
 
-Route::get('/catorsa/datos',[AnalisisController::class, 'index'])->name('analisis.index');
+Route::get('/pastel',[AnalisisController::class, 'analisisPastelIndex'])->name('analisis.pastel.index');
+
+Route::get('/pastel/show',[VentasController::class, 'formCheck'])->name('analisis.pastel.show');
 
 Route::get('/importar-cvs/agente',[AnalisisController::class, 'importarAgentesCSV'])->name('importarAgentes.cvs');
 
@@ -25,6 +27,6 @@ Route::get('/importar-cvs/almacen',[AnalisisController::class, 'importarAlmacenC
 
 Route::get('/importar-cvs/pagos',[AnalisisController::class, 'importarPagosCSV'])->name('importarPagos.cvs');
 
-Route::get('/catorsa/analisis',[VentasController::class, 'formCheck'])->name('analisis.show');
+
 
 
