@@ -25,10 +25,10 @@ class AnalisisController extends Controller
     }
 
 
-    public function index()
+    public function analisisLineasIndex()
     {
         $almacen = Almacen::all();
-        return view('analisis.index', ['almacen' => $almacen]);
+        return view('analisis.lineas.index', ['almacen' => $almacen]);
     }
 
 

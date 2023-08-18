@@ -2,9 +2,6 @@
 @section('title', 'Graficos')
 @section('content')
 
-
-
-
     <div class="container">
 
         <div class="abc-center">

@@ -13,7 +13,7 @@ class VentasController extends Controller
 {
 
     // ESTE METODO SE ENCARGA DE VALIDAR LAS OPCIONES QUE EL USUARIO NECESITA Y SELECCIONO
-    public function formCheck(Request $request)
+    public function formCheckPastel(Request $request)
     {
 
         $instancia = new VentasController();
@@ -143,6 +143,10 @@ class VentasController extends Controller
                 }
             }
         }
+    }
+
+    public function formCheckLineas(){
+        return view('analisis.lineas.show');
     }
 
 }

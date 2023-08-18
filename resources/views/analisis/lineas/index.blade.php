@@ -2,25 +2,24 @@
 @section('title', 'Analisis')
 @section('content')
 
-    @vite(['resources/js/form-check.js'])
+    @vite(['resources/js/form-check-lineas.js'])
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-timepicker/jquery.timepicker.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
     <div class="container">
 
         <div class="adc-center">
 
-            <form action="{{ route('analisis.show') }}" method="GET" id="myForm">
+            <form action="{{ route('analisis.lineas.show') }}" method="GET" id="myForm">
 
                 <div class="row">
 
                     <div class="container">
 
                         <h3>
-                            <small class="text-muted">Grafica de pastel</small>
+                            <small class="text-muted">Grafica de lineas</small>
                         </h3>
 
                         <div class="row">
@@ -35,8 +34,6 @@
                                     </select>
                                     <label for="selectAlmacen">Almacén</label>
                                 </div>
-
-
                             </div>
                             <div class="col">
                                 <br>

@@ -15,18 +15,18 @@ use App\Http\Controllers\VentasController;
 |
 */
 
-Route::get('/',[AnalisisController::class, 'home'])->name('home');
+Route::get('/', [AnalisisController::class, 'home'])->name('home');
 
-Route::get('/pastel',[AnalisisController::class, 'analisisPastelIndex'])->name('analisis.pastel.index');
+Route::get('/pastel', [AnalisisController::class, 'analisisPastelIndex'])->name('analisis.pastel.index');
 
-Route::get('/pastel/show',[VentasController::class, 'formCheck'])->name('analisis.pastel.show');
+Route::get('/pastel/show', [VentasController::class, 'formCheckPastel'])->name('analisis.pastel.show');
 
-Route::get('/importar-cvs/agente',[AnalisisController::class, 'importarAgentesCSV'])->name('importarAgentes.cvs');
+Route::get('/lineas', [AnalisisController::class, 'analisisLineasIndex'])->name('analisis.lineas.index');
 
-Route::get('/importar-cvs/almacen',[AnalisisController::class, 'importarAlmacenCSV'])->name('importarAlmacen.cvs');
+Route::get('/lineas/show', [VentasController::class, 'formCheckLineas'])->name('analisis.lineas.show');
 
-Route::get('/importar-cvs/pagos',[AnalisisController::class, 'importarPagosCSV'])->name('importarPagos.cvs');
+Route::get('/importar-cvs/agente', [AnalisisController::class, 'importarAgentesCSV'])->name('importarAgentes.cvs');
 
+Route::get('/importar-cvs/almacen', [AnalisisController::class, 'importarAlmacenCSV'])->name('importarAlmacen.cvs');
 
-
-
+Route::get('/importar-cvs/pagos', [AnalisisController::class, 'importarPagosCSV'])->name('importarPagos.cvs');
